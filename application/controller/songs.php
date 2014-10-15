@@ -98,10 +98,10 @@ class Songs extends Controller
             var_dump($song);
             echo "</pre>";
             
-            echo "<p>ID: {$song[0]->id}</p>";
-            echo "<p>Artista: {$song[0]->artist}</p>";
-            echo "<p>Faixa: {$song[0]->track}</p>";
-            echo "<p>Link: {$song[0]->link}</p>";
+            echo "<p>ID: {$song->id}</p>";
+            echo "<p>Artista: {$song->artist}</p>";
+            echo "<p>Faixa: {$song->track}</p>";
+            echo "<p>Link: {$song->link}</p>";
             die();
              * 
              */
