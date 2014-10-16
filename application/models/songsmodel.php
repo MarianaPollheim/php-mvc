@@ -79,4 +79,22 @@ class SongsModel
         $query = $this->db->prepare($sql);
         $query->execute(array(':song_id' => $song_id));
     }
+    /**
+     * Add a song to database
+     * @param string song_id ID
+     * @param string $track Track
+     * @param string $link Link
+     */
+    public function updateSong($song_id, $artist, $track, $link)
+    {
+        // clean the input from javascript code for example
+        
+        $artist = strip_tags($artist);
+        $track = strip_tags($track);
+        $link = strip_tags($link);
+
+        $sql = "UPDATE song SET artist= :artist, track = :track, link = :link WHERE id = :song_id";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':artist' => $artist, ':track' => $track, ':link' => $link, ':song_id' =>$song_id));
+    }
 }

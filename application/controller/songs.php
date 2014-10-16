@@ -108,11 +108,27 @@ class Songs extends Controller
             
         }
         // load views. 
-        //require 'application/views/_templates/header.php';
+        require 'application/views/_templates/header.php';
         require 'application/views/songs/edit.php';
-        //require 'application/views/_templates/footer.php';
+        require 'application/views/_templates/footer.php';
         
     }
     
+    /**
+     * Reebe dados atraves do POST e envia para o modelo 
+     */
+     public function updateSong()
+    {
+
+        // if we have POST data to create a new song entry
+        if (isset($_POST["submit_update_song"])) {
+            // load model, perform an action on the model
+            $songs_model = $this->loadModel('SongsModel');
+            $songs_model->updateSong($_POST["song_id"],$_POST["artist"], $_POST["track"],  $_POST["link"]);
+        }
+
+        // where to go after song has been added
+        header('location: ' . URL . 'songs/index');
+    }
     
 }
